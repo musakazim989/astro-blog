@@ -1,14 +1,49 @@
-
 ---
-const name = 'Astro'
-const demoData = ['apple', 'banana', 'orange']
-const myColor = 'blue'
+const myColor = "blue";
+const pageTitle = "Home Page";
+const identity = {
+  firstName: "Sarah",
+  country: "Canada",
+  occupation: "Technical Writer",
+  hobbies: ["photography", "birdwatching", "baseball"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
-<>
-<h1 class={myColor}>Hello astro{name}</h1>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <h1 class={myColor}>hello2</h1>
+    <a href="./about/">check about</a><br /><br />
+    <a href="./blog/">check myblog</a>
+    <p>hello</p>
+    <p>test progress.....</p>
+    <p>First Name: {identity.firstName}</p>
+    <h1>{identity.occupation}</h1>
+    <h3>it's true</h3>
+    <ul>
+      {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+    {happy && <p>I am happy to be learning Astro!</p>}
 
-{demoData.map((item) => <p>{item}</p>)}
+    {finished && <p>I finished this tutorial!</p>}
 
-
-</>
+    {
+      goal === 3 ? (
+        <p>My goal is to finish in 3 days.</p>
+      ) : (
+        <p>My goal is not 3 days.</p>
+      )
+    }
+  </body>
+</html>
